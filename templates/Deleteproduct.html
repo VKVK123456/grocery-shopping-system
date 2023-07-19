@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>delete products</title>
+    <style media="screen">
+        *,
+          *:before,
+          *:after{
+              padding: 0;
+              margin: 0;
+              box-sizing: border-box;
+          }
+          header{
+            width: 100%;
+            height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 10px;
+            background: rgba(0,0,0,0.2);
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            color: #fff;
+        }
+        nav ul{
+            float: right;
+        }
+        nav li{
+            display: inline-block;
+            list-style: none;
+            padding: 0px 20px;
+        }
+        nav li a{
+            font-size: 15px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        nav li a:hover{
+            color: #fd5e53;
+            transition: all 0.4s ease 0s;
+        }
+
+          body{
+               background-color: rgb(208, 95, 113);
+               background-image: url("../static/images/deleteproduct.jpeg");
+               background-repeat:no-repeat ;
+               background-size: cover;  
+          }
+          .background{
+              width: 430px;
+              height: 520px;
+              position: absolute;
+              transform: translate(-50%,-50%);
+              left: 50%;
+              top: 50%;
+          }
+          .background .shape{
+              height: 200px;
+              width: 200px;
+              position: absolute;
+              border-radius: 50%;
+          }
+          .shape:first-child{
+              background: linear-gradient(
+                  #1845ad,
+                  #23a2f6
+              );
+              left: -80px;
+              top: -80px;
+          }
+          .shape:last-child{
+              background: linear-gradient(
+                  to right,
+                  #ff512f,
+                  #f09819
+              );
+              right: -30px;
+              bottom: -80px;
+          }
+          form{
+              height: 420px;
+              width: 400px;
+              background-color: rgba(255,255,255,0.13);
+              position: absolute;
+              transform: translate(-50%,-50%);
+              top: 50%;
+              left: 50%;
+              border-radius: 10px;
+              backdrop-filter: blur(10px);
+              border: 2px solid rgba(255,255,255,0.1);
+              box-shadow: 0 0 40px rgba(8,7,16,0.6);
+              padding: 80px 40px 35px;
+          }
+          form *{
+              font-family: 'Poppins',sans-serif;
+              color: #ffffff;
+              letter-spacing: 0.5px;
+              outline: none;
+              border: none;
+          }
+          form h3{
+              font-size: 32px;
+              font-weight: 500;
+              line-height: 32px;
+              text-align: center;
+          }
+  
+          label{
+              display: block;
+              margin-top: 30px;
+              font-size: 16px;
+              font-weight: 500;
+          }
+          input{
+              display: block;
+              height: 50px;
+              width: 100%;
+              background-color: rgba(255,255,255,0.07);
+              border-radius: 3px;
+              padding: 0 10px;
+              margin-top: 8px;
+              font-size: 14px;
+              font-weight: 300;
+          }
+          ::placeholder{
+              color: #e5e5e5;
+          }
+          button{
+              margin-top: 50px;
+              width: 100%;
+              background-color: #e39a51;
+              color: #080710;
+              padding: 15px 0;
+              font-size: 18px;
+              font-weight: 600;
+              border-radius: 5px;
+              cursor: pointer;
+          }
+          .social{
+              margin-top: 30px;
+              display: flex;
+          }
+          .social div{
+              background: red;
+              width: 150px;
+              border-radius: 3px;
+              padding: 5px 10px 10px 5px;
+              background-color: rgba(255,255,255,0.27);
+              color: #eaf0fb;
+              text-align: center;
+          }
+          .social div:hover{ 
+              background-color: rgba(255,255,255,0.47);
+          }
+          .social .fb{
+              margin-left: 25px;
+          }
+          .social i{
+              margin-right: 4px;
+          }
+          a:link {
+              text-decoration: none;
+          }
+          a:hover {
+              color: #ff2fac;
+          }
+          .sup{
+              margin-top: 20px;
+          }
+          h2 {
+            width: 100%;
+            color: rgb(249, 244, 244);
+            font-family: "open sans condensed";
+            font-size: 1.35em;
+            display: block;
+            background: rgb(86, 79, 79);
+            text-transform: uppercase;
+            padding: 0.75em 1em 0.75em 1.5em;
+            box-shadow: inset 0px 1px 1px fadeout(white, 95%);
+            border: 1px solid darken(grey, 5%);
+            margin: 0;
+            font-weight: 200;
+            text-align: center;
+        }
+      </style>
+</head>
+<body>
+    <header>
+    
+        <div class="logo">
+            <p>Grocery</p>
+        </div>
+        <nav>
+           <ul>
+   
+            <li><a href="{{ url_for('home')}}" class="active"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="{{ url_for('addproduct')}}">Add products</a></li>
+            <li><a href="{{ url_for('deleteproduct')}}"> Delete products</a></li>
+            
+            <li><a href="{{url_for('getallproducts')}}"> View Products</a></li>
+            <li><a href="{{url_for('getallorders')}}">view orders</a></li>
+            <li><a href="{{url_for('rendersales')}}">view salesreport</a></li>
+            <li><a href="{{url_for('MyhomeRoot')}}">Log Out</a></li>
+        </ul>
+    </nav>
+    </header>
+    <div class="log-form">
+        <h2>delete product</h2>
+        <form action="{{url_for('Delproducts')}}" method="POST">
+        <!--input type="text" title="Name" placeholder="Enter Product id" name="proid"/-->
+          <input type="text" title="ID" placeholder="Enter Product id" name="product_id"/>
+          <button type="submit">Delete</button> 
+        </form>
+      </div>
+</body>
+</html>

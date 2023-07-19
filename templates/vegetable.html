@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      .img1{
+        display: inline-block;
+        position: absolute;
+        right:900px;
+      }
+      .img2{
+        display: inline-block;
+        position: absolute;
+        right: 500px;
+      }
+      .btn1{
+        display: inline-block;
+        position: absolute;
+        left: 1350px;
+        top:20px;
+      }
+      .logo {
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            color: #fff;
+        }
+        nav ul{
+            float: right;
+        }
+        nav li{
+            display: inline-block;
+            list-style: none;
+            padding: 0px 20px;
+        }
+        nav li a{
+            font-size: 15px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        nav li a:hover{
+            color: #fd5e53;
+            transition: all 0.4s ease 0s;
+        }
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            box-sizing: border-box;
+
+        }
+        body{
+            /* background: url("../static/images/product-images/home.jpeg") no-repeat; */
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+        header{
+            width: 100%;
+            height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 10px;
+            background: rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+  <header>
+        
+    <div class="logo">
+        <p>Grocery</p>
+    </div>
+    <nav>
+       <ul>
+
+        <li><a href="{{ url_for('home2')}}" class="active"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="{{ url_for('category')}}">Category</a></li>
+        <li><a href="{{ url_for('cartItems')}}"> Cart</a></li>
+        <li><a href="{{url_for('MyhomeRoot')}}">Log Out</a></li>
+    
+    </ul>
+</nav>
+</header>
+    
+    
+    <h1>Products Available</h1>
+    <br>
+        <div class="d-grid gap-2 d-md-block">
+          <div class="img1">
+            <h3>onion</h3>
+            <img src="{{url_for('static',filename='images/product-images/onion.jpg')}}" alt="" width="200" height="300">
+            <h4>Rs:{{Pid_name.2.2}}</h4>
+          <br><br>
+          <form action="{{url_for('AddTocart')}}" method="POST">
+          <input type="number"  name="quantity" min="1" max="5">
+          <input type="hidden" name="pid" value="{{Pid_name.2.0}}">
+          <input class="btn btn-primary" type="submit" value ="AddTocart"> 
+          </form>  
+          </div>
+          <div class="img2">
+            <h3>potato</h3>
+            <img src="{{url_for('static',filename='images/product-images/potato.jpg')}}" alt="" width="200" height="300">
+            <h4>Rs:{{Pid_name.0.2}}</h4>
+         
+        
+          <br><br>
+          <form action="{{url_for('AddTocart')}}" method="POST">
+          <input type="number"  name="quantity" min="1" max="5">
+          <input type="hidden" name="pid" value="{{Pid_name.0.0}}">
+          <input class="btn btn-primary" type="submit"value ="Addtocart" > 
+          </form>   
+          </div>  
+        </div>
+      
+
+</body>
+</html>

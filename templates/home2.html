@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Marcellus SC">
+    <link rel="icon" href="{{url_for('static',filename='images/icon.png')}}">
+
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            box-sizing: border-box;
+
+        }
+        body{
+            background: url("../static/images/product-images/home.jpeg") no-repeat;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+        header{
+            width: 100%;
+            height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 10px;
+            background: rgba(0,0,0,0.2);
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            color: #fff;
+        }
+        nav ul{
+            float: right;
+        }
+        nav li{
+            display: inline-block;
+            list-style: none;
+            padding: 0px 20px;
+        }
+        nav li a{
+            font-size: 15px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        nav li a:hover{
+            color: #fd5e53;
+            transition: all 0.4s ease 0s;
+        }
+        
+    </style>
+    
+</head>
+<body>
+    <body>
+        <header>
+        
+            <div class="logo">
+                <p>Grocery</p>
+            </div>
+            <nav>
+               <ul>
+       
+                <li><a href="{{ url_for('home2')}}" class="active"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="{{ url_for('category')}}">Category</a></li>
+                <li><a href="{{ url_for('cartItems')}}"> Cart</a></li>
+                <li><a href="{{url_for('getname')}}">custname:{{custname}}</a></li>
+                <li><a href="{{url_for('MyhomeRoot')}}">Log Out</a></li>
+            
+            </ul>
+        </nav>
+        </header>
+   
+    <!-- <div>
+        <ul>
+            <li><a href="{{url_for('getallproducts')}}"> View Products</a></li>
+            <li><a href="{{url_for('getallorders')}}">view orders</a></li>
+            <li><a href="{{url_for('getallorderdetails')}}">view order details</a></li>
+        </ul>
+    </div> -->
+
+</body>
+</html>

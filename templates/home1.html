@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>title</title>
+</head>
+<body>
+	<a href="{{url_for('getallproducts')}}"> View Products</a>
+    <a href="{{url_for('getallorders')}}">view orders</a>
+    <a href="{{url_for('getallorderdetails')}}">view order details</a>
+
+</body>
+</html>
+
+
+
+
+<header>
+    
+	<div class="logo">
+		<p>Grocery</p>
+	</div>
+	<nav>
+	   <ul>
+
+		<li><a href="{{ url_for('home2')}}" class="active"><i class="fa fa-home"></i> Home</a></li>
+		<ll><a href="{{url_for('category')}}">category</a></ll>
+		<li><a href="{{url_for('cartItems')}}">cart</a></li>
+	   
+	   </ul>
+</nav>
+</header>
